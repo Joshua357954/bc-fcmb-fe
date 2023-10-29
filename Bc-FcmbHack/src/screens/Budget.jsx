@@ -38,11 +38,11 @@ const Budjet = () => {
         ))}
       </ul>
       <div className={show? 'flex' : 'hidden'}>
-      <div className=' w-full md:w-5/12  bg-blue-100 flex items-center justify-between'>
+      <div className=' w-full my-10 rounded-xl  bg-blue-100 flex items-center justify-between'>
       <textarea
       className='w-full h-12 bg-blue-100 flex items-center justify-between border-none outline-none' 
         type="text"
-        placeholder="Add a task"
+        placeholder="create a budget"
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
@@ -50,7 +50,7 @@ const Budjet = () => {
       </div>
       </div>
      <div className='flex justify-end'>
-     <button onClick={showBudget} className='py-8 px-6 bg-blue-700'>Create a Budget</button>
+     <button onClick={showBudget} className='py-8 px-6 bg-blue-700 rounded-xl'>Create a Budget</button>
      </div>
     </div>
   );
