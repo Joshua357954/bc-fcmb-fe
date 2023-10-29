@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {BiArrowBack} from 'react-icons/bi';
 
 const Budjet = () => {
   const [budgets, setBudgets] = useState([]);
@@ -26,7 +27,7 @@ const Budjet = () => {
   return (
     <div className=''> 
       
-      <div className='py-12'><Link to='/'>Finance Manager</Link></div>
+      <div className='py-12 flex'><Link to='/'> <BiArrowBack/> Finance Manager</Link></div>
      
       <ul className='flex flex-col gap-4 p-4'>
         {budgets.map((todo, index) => (
