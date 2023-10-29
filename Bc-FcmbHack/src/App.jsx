@@ -6,6 +6,7 @@ import {
 import AuthScreen from './screens/Auth.jsx'
 
 import HomeScreen from './screens/HomeScreen.jsx'
+import Budget from "./screens/Budget.jsx"
 
 const router = createBrowserRouter([
     
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       path: "/",
       element: <HomeScreen />,
     },
+    {
+      path: "/budget",
+      element:<Budget/>
+    }
 
 ])
 
