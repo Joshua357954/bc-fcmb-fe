@@ -25,9 +25,9 @@ const Budjet = () => {
   };
 
   return (
-    <div className=''> 
+    <div className='p-4 min-h-screen'> 
       
-      <div className='py-12 flex'><Link to='/'> <BiArrowBack/> Finance Manager</Link></div>
+      <div className='py-12'><Link to='/' className=' flex items-center'> <BiArrowBack size={20}/> <span className='text-xl font-bold'>Finance Manager</span></Link></div>
      
       <ul className='flex flex-col gap-4 p-4'>
         {budgets.map((todo, index) => (
@@ -49,7 +49,9 @@ const Budjet = () => {
       <button onClick={handleAddTodo} className='py-4 px-3 bg-blue-700'>Add</button>
       </div>
       </div>
-      <button onClick={showBudget} className='py-8 px-6 bg-blue-700'>Create a Budjet</button>
+     <div className='flex justify-end'>
+     <button onClick={showBudget} className='py-8 px-6 bg-blue-700'>Create a Budget</button>
+     </div>
     </div>
   );
 };
