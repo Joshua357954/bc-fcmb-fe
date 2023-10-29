@@ -38,9 +38,9 @@ const Budjet = () => {
         ))}
       </ul>
       <div className={show? 'flex' : 'hidden'}>
-      <div className=' w-full my-10 rounded-xl  bg-blue-100 flex items-center justify-between'>
+      <div className=' w-full my-10 rounded-xl  bg-blue-100 flex items-center justify-between p-4'>
       <textarea
-      className='w-full h-12 bg-blue-100 flex items-center justify-between border-none outline-none' 
+      className='w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4' 
         type="text"
         placeholder="create a budget"
         value={task}
