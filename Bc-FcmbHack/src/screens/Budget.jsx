@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaPlus as AddNew } from 'react-icons/fa'
+import { MdOutlineCreate as New } from 'react-icons/md'
 import { BiArrowBack as Back } from "react-icons/bi";
+import { GrFormClose as CloseMe } from "react-icons/gr";
+import AddBudgetModal from '../Components/AddBudget.jsx'
+
+
 import Modal from "react-modal";
 ////
 import "../styles/modal.css";
@@ -38,11 +44,13 @@ const Budjet = () => {
 
   return (
     <div className="p-4 h-screen md:w-3/5 mx-auto">
-      <div className="py-5 bg-blue-200">
+
+      <div className="py-5 flex justify-between">
         <Link to="/" className=" flex items-center">
-          <Back size={20} />{" "}
-          <span className="text-xl font-bold">Finance Manager</span>
+          <Back size={25} />{" "}
         </Link>
+        <span className="text-xl font-bold">Finance Manager</span>
+        <div> </div>
       </div>
 
       <ul className="flex flex-col gap-4 p-4">
@@ -61,7 +69,8 @@ const Budjet = () => {
           </li>
         ))}
       </ul>
-      <div className={show ? "flex" : "hidden"}>
+
+      {/*<div className={show ? "flex" : "hidden"}>*/}
         {/*
       <div className=' w-full my-10 rounded-xl  bg-blue-100 flex items-center justify-between p-4'>
       <textarea
@@ -73,94 +82,25 @@ const Budjet = () => {
       />
       <button onClick={handleAddTodo} className='py-4 px-3 bg-blue-700'>Add</button>
         </div>*/}
-      </div>
+   {/*   </div>*/}
+
+
       <div className="flex justify-end">
         <button
           onClick={showBudget}
-          className="py-8 px-6 bg-blue-700 rounded-xl"
+          className="py-2 px-3 text-sm font-semibold bg-blue-200 rounded-lg flex items-center gap-3  "
         >
-          Create a Budget
+         <p> Create <br/>Budget</p> <New size={26}/> 
         </button>
       </div>
 
-      {/* Modal */}
-      <Modal
-        isOpen={show}
-        onClose={closeBudget}
-        onAdd={handleAddTodo}
-        className="w-screen md:w-3/5 mx-auto bg-white bg-opacity-100 border border-black mt-4 "
-      >
-        <div onClick={closeBudget} className="flex justify-end">
-          <Back />
-        </div>
+      {/* Budget Creation */}
+      <AddBudgetModal show={show} closeBudget={closeBudget} handleAddTodo={handleAddTodo} task={task} setTask={setTask} />
 
-        <div className="flex flex-col gap-4 p-4">
-          <span className="text-xl font-semibold">Create a Budget</span>
-          <label className="text-sm font-semibold">Budget Name</label>
-          <input
-            type="text"
-            placeholder="Budget Name"
-            value={task.budgetName}
-            onChange={(e) => setTask({ ...task, budgetName: e.target.value })}
-            className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
-          />
-          <label className="text-sm font-semibold">Amount</label>
-          <input
-            type="text"
-            placeholder="Amount"
-            value={task.amount}
-            onChange={(e) => setTask({ ...task, amount: e.target.value })}
-            className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
-          />
-          <label className="text-sm font-semibold">Description</label>
-          <input
-            type="text"
-            placeholder="Description"
-            value={task.description}
-            onChange={(e) => setTask({ ...task, description: e.target.value })}
-            className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
-          />
-          <label className="text-sm font-semibold">Priority Level</label>
-          <input
-            type="text"
-            placeholder="Priority Level"
-            value={task.priorityLevel}
-            onChange={(e) =>
-              setTask({ ...task, priorityLevel: e.target.value })
-            }
-            className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
-          />
-          <label className="text-sm font-semibold">Account Number</label>
-          <input
-            type="text"
-            placeholder="Account Number"
-            value={task.accNumber}
-            onChange={(e) => setTask({ ...task, accNumber: e.target.value })}
-            className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
-          />
-          <label className="text-sm font-semibold">Receiver Bank</label>
-          <input
-            type="text"
-            placeholder="Reciever Bank"
-            value={task.receiverBank}
-            onChange={(e) => setTask({ ...task, receiverBank: e.target.value })}
-            className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
-          />
-
-          {/* <textarea
-          className='w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4' 
-            type="text"
-            placeholder="create a budget"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-      />*/}
-          <button onClick={handleAddTodo} className="py-4 px-3 bg-blue-700">
-            Add
-          </button>
-        </div>
-      </Modal>
     </div>
   );
 };
+
+
 
 export default Budjet;
