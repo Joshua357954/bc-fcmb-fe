@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiArrowBack as Back } from "react-icons/bi";
 import Modal from "react-modal";
+////
 import "../styles/modal.css";
 
 const Budjet = () => {
