@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router-dom'
 import Img from '../assets/avatar.jpg'
-import { FaArrowTrendUp as Limit }  from 'react-icons/fa'
+// import { FaArrowTrendUp as Limit }  from 'react-icons/fa'
 import { MdOutlineAutoMode as Auto }  from 'react-icons/md'
 import {BiArrowBack as Back} from 'react-icons/bi';
+// import {TbLogout2} from "react-icons/tb"
+
 import { BsChevronLeft as Back1 } from 'react-icons/bs'
 
 const Profile = ({ className }) => {
-    return (
+    return ( 
         
         <main className='w-full md:w-3/5 mx-auto'>
         	
@@ -30,7 +32,7 @@ const Profile = ({ className }) => {
 
             <ul  className="mx-4 mt-5">
                 <li className=" py-4 mt-1 flex items-center gap-4"> 
-                 <Limit size={30}/> <p className="text-lg font-semibold"> Daily Limit</p>
+                 <Auto size={30}/> <p className="text-lg font-semibold"> Daily Limit</p>
                 </li>
                 
                 <li className=" py-4 mt-1 flex items-center gap-4"> 
