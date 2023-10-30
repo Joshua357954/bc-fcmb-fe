@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {BiArrowBack as Back} from 'react-icons/bi';
-import {AiOutlineClose} from 'react-icons/ai';
 import Modal from'react-modal';
 import '../styles/modal.css'
 
@@ -39,9 +38,9 @@ const Budjet = () => {
      
       <ul className='flex flex-col gap-4 p-4'>
         {budgets.map((todo, index) => (
-          <li key={index} className='w-[300px] h-12 bg-blue-100 flex items-center justify-between'>
+          <li key={index} className='flex rounded justify-between items-center px-2 py-3 mt-1 border-2 border-blue-500'>
             {todo}
-            <button onClick={() => handleDeleteTodo(index)}>Delete</button>
+            <button className='bg-red-600 px-2 py-1' onClick={() => handleDeleteTodo(index)}>Delete</button>
           </li>
         ))}
       </ul>
@@ -65,7 +64,7 @@ const Budjet = () => {
 
 
      {/* Modal */}
-     <Modal isOpen={show} onClose={closeBudget} onAdd={handleAddTodo} className='w-screen bg-white bg-opacity-100 border border-black ' >
+     <Modal isOpen={show} onClose={closeBudget} onAdd={handleAddTodo} className='w-screen md:w-3/5 mx-auto bg-white bg-opacity-100 border border-black ' >
         
         <div onClick={closeBudget} className='flex justify-end'>
             <Back/>
