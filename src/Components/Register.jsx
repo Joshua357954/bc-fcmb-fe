@@ -36,26 +36,6 @@ const RegistrationForm = ({
         {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
       </div>
 
-      <div className='space-y-1'>
-        <label className="block text-black text-sm font-bold" htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          placeholder="Enter your username"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-            if (errors.username) {
-              // Clear the error when the user starts typing
-              delete errors.username;
-            }
-          }}
-          className={`appearance-none border rounded-md w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline ${
-            errors.username ? 'border-red-500' : ''
-          }`}
-        />
-        {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
-      </div>
 
       <div className='space-y-1'>
         <label className="block text-black text-sm font-bold" htmlFor="email">Email</label>
@@ -83,7 +63,7 @@ const RegistrationForm = ({
         <input
           type="text"
           id="accountNumber"
-          placeholder="Enter your account number"
+          placeholder="Enter your Phone Number"
           value={accountNumber}
           onChange={(e) => {
             setAccountNumber(e.target.value);

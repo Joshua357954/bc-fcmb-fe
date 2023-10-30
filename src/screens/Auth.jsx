@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LoginForm from '../Components/Login.jsx'
 import RegistrationForm from '../Components/Register.jsx'
+import axios from 'axios'
 
 
 const AuthScreen = () => {
@@ -12,14 +13,20 @@ const AuthScreen = () => {
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [errors, setErrors] = useState({});
+  const BASE_URL = 'https://bankcraft.onrender.com/api/v1'
 
   const handleRegister = () => {
     const validationErrors = validateRegistrationForm();
     if (Object.keys(validationErrors).length === 0) {
       // Registration logic (e.g., sending data to the server)
       console.log('Registration Data:', { name, username, email, accountNumber, password });
-      clearFields();
-      setIsRegistered(true);
+      // console.log(data)
+      // clearFields();
+
+      const res = axios.post(`${BASE_URL}/users`, { first_name:name, last_name:"...." ,email, password } )
+      console.log(res)
+      alert(JSON.stringify(res))
+      // setIsRegistered(true);
     } else {
       setErrors(validationErrors);
     }
@@ -81,12 +88,12 @@ const AuthScreen = () => {
       delete errors.name;
     }
 
-    if (!username.trim()) {
-      errors.username = 'Username is required';
-    } else {
-      // Clear the error when the user starts typing
-      delete errors.username;
-    }
+    // if (!username.trim()) {
+    //   errors.username = 'Username is required';
+    // } else {
+    //   // Clear the error when the user starts typing
+    //   delete errors.username;
+    // }
 
     if (!email.trim()) {
       errors.email = 'Email is required';
@@ -140,12 +147,12 @@ const AuthScreen = () => {
         ) : !isRegistered ? (
           <RegistrationForm
             name={name}
-            username={username}
+            // username={username}
             email={email}
             accountNumber={accountNumber}
             password={password}
             setName={setName}
-            setUsername={setUsername}
+            // setUsername={setUsername}
             setEmail={setEmail}
             setAccountNumber={setAccountNumber}
             setPassword={setPassword}
