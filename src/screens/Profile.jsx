@@ -38,7 +38,7 @@ const Profile = ({ className }) => {
                 </li>
                 
                 <li className=" py-4 mt-1 flex items-center gap-4"> 
-                 <Auto className="text-green-400" size={30}/> <p className="text-lg font-semibold"> Auto </p></li>
+                 <Auto className="text-green-400" size={30}/> <p className="text-lg font-semibold"> Auto Debit</p></li>
                 
                 <li className=" py-4 mt-1 flex items-center gap-4"> 
                  <Lock className="text-red-400" size={30}/> <p className="text-lg font-semibold">Pin Manager</p></li>

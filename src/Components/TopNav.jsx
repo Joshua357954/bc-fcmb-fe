@@ -8,7 +8,7 @@ const TopNav = ({ className }) => {
     	// sticky top-0 left-0
         <nav className=" w-full shadow-sm ">
         	<div className="w-full h-full flex items-center justify-between py-3 px-3"> 
-	        	<h1 className="text-3xl font-black">BankCraft</h1> 
+	        	<h1 className="text-3xl font-black text-black">BankCraft</h1> 
 	        	<Link to='profile' className="flex items-center gap-1">
                     <div className="rounded-full h-14 w-14 bg-black"> 
                         <img src={Img} className="w-full h-full"/>
