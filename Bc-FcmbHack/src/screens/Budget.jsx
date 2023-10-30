@@ -9,14 +9,37 @@ const Budjet = () => {
   const [budgets, setBudgets] = useState([]);
   //const [task, setTask] = useState('');
   const [task, setTask] = useState({
-    budgetName: "",
+    title: "",
     amount: "",
     description: "",
-    priorityLevel: "",
-    receiverBank: "",
-    accNumber: "",
+    priority_level: "",
+    label: "",
+    /*receiverBank: "",
+    accNumber: "",*/
   });
   const [show, setShow] = useState(false);
+  const addTaskToAPI = (task) => {
+    fetch('https://bankcraft.onrender.com/api/v1/budgets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(task),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to add the task to the API');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Handle the response from the API if needed
+        console.log('Task added to the API:', data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const showBudget = () => {
     setShow(true);
@@ -26,9 +49,13 @@ const Budjet = () => {
   };
 
   const handleAddTodo = () => {
-    if (task.trim() === "") return;
+    //if (task.trim() === "") return;
     setBudgets([...budgets, task]);
-    setTask("");
+    setTask({ title: "", amount: "", description: "", priority_level: "", label:"", /*receiverBank: "", accNumber: ""*/ });
+    // Send the task data to the API
+    addTaskToAPI(task);
+
+   
   };
 
   const handleDeleteTodo = (index) => {
@@ -51,7 +78,33 @@ const Budjet = () => {
             key={index}
             className="flex rounded justify-between items-center px-2 py-3 mt-1 border-2 border-blue-500"
           >
-            {todo}
+           <div>
+            <p className="font-bold text-lg">Title</p>
+           <h3>{todo.title}</h3>
+           </div>
+    <div>
+      <p className="font-bold text-lg">Description</p>
+    <p>{todo.description}</p>
+    </div>
+      <div>
+        <p className="font-bold text-lg">Amount</p>
+      <p>
+        {todo.amount}
+      </p>
+      </div>
+      <div>
+        <p className="font-bold text-lg">Priority Level</p>
+      <p>
+        {todo.priority_level}
+      </p>
+      </div>
+     <div>
+      <p className="font-bold text-lg">Label</p>
+     <p>
+        {todo.label}
+      </p>
+     </div>
+     
             <button
               className="bg-red-600 px-2 py-1"
               onClick={() => handleDeleteTodo(index)}
@@ -100,8 +153,8 @@ const Budjet = () => {
           <input
             type="text"
             placeholder="Budget Name"
-            value={task.budgetName}
-            onChange={(e) => setTask({ ...task, budgetName: e.target.value })}
+            value={task.title}
+            onChange={(e) => setTask({ ...task, title: e.target.value })}
             className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
           />
           <label className="text-sm font-semibold">Amount</label>
@@ -124,12 +177,21 @@ const Budjet = () => {
           <input
             type="text"
             placeholder="Priority Level"
-            value={task.priorityLevel}
+            value={task.priority_level}
             onChange={(e) =>
-              setTask({ ...task, priorityLevel: e.target.value })
+              setTask({ ...task, priority_level: e.target.value })
             }
             className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
           />
+           <label className="text-sm font-semibold">Label</label>
+          <input
+            type="text"
+            placeholder="Label"
+            value={task.label}
+            onChange={(e) => setTask({ ...task, label: e.target.value })}
+            className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
+          />
+          {/*
           <label className="text-sm font-semibold">Account Number</label>
           <input
             type="text"
@@ -145,7 +207,7 @@ const Budjet = () => {
             value={task.receiverBank}
             onChange={(e) => setTask({ ...task, receiverBank: e.target.value })}
             className="w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4"
-          />
+          />*/}
 
           {/* <textarea
           className='w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4' 
