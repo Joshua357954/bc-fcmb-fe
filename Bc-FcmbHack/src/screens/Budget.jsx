@@ -62,8 +62,10 @@ const Budjet = () => {
      <button onClick={showBudget} className='py-8 px-6 bg-blue-700 rounded-xl'>Create a Budget</button>
      </div>
     
-      {/* Modal */}
-     <Modal isOpen={show} onClose={closeBudget} onAdd={handleAddTodo} className='p-6 h-3/6 w-10/12 mx-auto bg-white bg-opacity-100 border border-black' >
+
+
+     {/* Modal */}
+     <Modal isOpen={show} onClose={closeBudget} onAdd={handleAddTodo} className='w-screen bg-white bg-opacity-100 border border-black ' >
         
         <div onClick={closeBudget} className='flex justify-end'>
             <AiOutlineClose/>

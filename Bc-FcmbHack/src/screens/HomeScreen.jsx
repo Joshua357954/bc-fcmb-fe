@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TopNav from '../Components/TopNav.jsx'
 import { TbPigMoney as Bud } from 'react-icons/tb'
-
+import { FaChevronUp as Up, FaChevronDown as Down } from 'react-icons/fa'
 import CompletedBudget from '../Components/CompletedBudgets.jsx'
 import BottomNav from '../Components/BottomNav.jsx'
 import { PiEyeLight as Eye, PiEyeSlashLight as EyeClosed } from 'react-icons/pi'
@@ -66,13 +66,15 @@ const App = () => {
         </div>
 
        
-        <div className="bg-white blue-200 rounded py-2 mb-4 mt-7 w-full">
+        <div className="bg-white blue-200 rounded py-2 mb-0 mt-7 w-full">
           <h1 className="text-xl font-semibold">Transactions</h1>
           <ul className="w-full">
             {transactions.map((transaction) => (
-              <li key={transaction.id} className="flex rounded justify-between items-center p-2 mt-1 bg-gray-50">
-                <div className={`${transaction.amount > 0 ? 'bg-green-200':'bg-red-200'} h-12 w-14 rounded-md`}>
-
+              <li key={transaction.id} className="flex rounded justify-between items-center px-2 py-3 mt-1 ">
+                <div className={`${transaction.amount > 0 ? 'bg-green-200':'bg-red-200'} h-14 w-16 rounded-md flex justify-center items-center`}>
+                	{transaction.amount > 0 ?
+                		<Up className="text-green-600" size={20}/> : <Down className="text-red-600" size={20}/>
+                	}
                 </div>
                 
                 <div> 
@@ -87,7 +89,7 @@ const App = () => {
         </div>
 
 
-        <div className="bg-white rounded w-full h-16">
+        <div className="bg-white rounded w-full h-12">
           {/* Dummy space (intentional) */}
         </div>
 
