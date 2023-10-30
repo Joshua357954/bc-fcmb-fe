@@ -6,15 +6,16 @@ import { Link } from "react-router-dom";
 
 const BottomNavBar = ({ className }) => {
   return (
-    <nav className="h-[10%] w-full  sticky bottom-0 right-0 bg-blue-100">
-      <div className="w-full h-full flex items-center justify-evenly">
+    
+    <footer className="bg-white p-4 fixed h-16 bottom-0 w-full">
+      <nav className="flex justify-between  mx-auto lg:w-3/5">
         <Home size={35} />
         <Link to="/budget" className="flex items-center gap-2">
           <Budget size={35} />
         </Link>
         <Chat size={30} />
-      </div>
-    </nav>
+      </nav>
+    </footer>
   );
 };
 
