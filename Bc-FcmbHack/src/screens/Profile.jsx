@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router-dom'
-import Img from '../assets/avatar.jpg'
-// import { FaArrowTrendUp as Limit }  from 'react-icons/fa'
-import { MdOutlineAutoMode as Auto }  from 'react-icons/md'
-import {BiArrowBack as Back} from 'react-icons/bi';
-import {TbLogout2} from "react-icons/tb"
-=======
 //import React, { PropTypes } from "react";
 import { Link } from "react-router-dom";
 import Img from "../assets/avatar.jpg";
@@ -14,7 +5,6 @@ import { FaArrowTrendUp as Limit } from "react-icons/fa6";
 import { MdOutlineAutoMode as Auto } from "react-icons/md";
 import { BiArrowBack as Back } from "react-icons/bi";
 //import { BsChevronLeft as Back1 } from "react-icons/bs";
->>>>>>> 70523e25f771e46ed2b27875b3303b341b7aa7a7
 
 const Profile = () => {
   return (
@@ -46,12 +36,7 @@ const Profile = () => {
           <Auto size={30} /> <p className="text-lg font-semibold"> Auto </p>
         </li>
 
-<<<<<<< HEAD
-                <li className="py-4 mt-1 px-auto w-full flex items-center gap-3 "> <p>Logout</p> <TbLogout2 color='red' size={22}/></li>
-            </ul>
-=======
         <li className=" py-4 mt-1 flex items-center gap-4">Pin Manager</li>
->>>>>>> 70523e25f771e46ed2b27875b3303b341b7aa7a7
 
         <li className=" py-4 mt-1 flex items-center gap-4">
           Privacy & Policy{" "}

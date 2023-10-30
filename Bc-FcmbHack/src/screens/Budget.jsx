@@ -53,6 +53,7 @@ const Budjet = () => {
     setBudgets([...budgets, task]);
     setTask({ title: "", amount: "", description: "", priority_level: "", label:"", /*receiverBank: "", accNumber: ""*/ });
     // Send the task data to the API
+    console.log(task);
     addTaskToAPI(task);
 
    
@@ -83,23 +84,23 @@ const Budjet = () => {
            <h3>{todo.title}</h3>
            </div>
     <div>
-      <p className="font-bold text-lg">Description</p>
+      <p className="font-bold text-base">Description</p>
     <p>{todo.description}</p>
     </div>
       <div>
-        <p className="font-bold text-lg">Amount</p>
+        <p className="font-bold text-base">Amount</p>
       <p>
         {todo.amount}
       </p>
       </div>
       <div>
-        <p className="font-bold text-lg">Priority Level</p>
+        <p className="font-bold text-base">Priority Level</p>
       <p>
         {todo.priority_level}
       </p>
       </div>
      <div>
-      <p className="font-bold text-lg">Label</p>
+      <p className="font-bold text-base">Label</p>
      <p>
         {todo.label}
       </p>
@@ -130,7 +131,7 @@ const Budjet = () => {
       <div className="flex justify-end">
         <button
           onClick={showBudget}
-          className="py-8 px-6 bg-blue-700 rounded-xl"
+          className="py-4 px-6 bg-blue-700 rounded-xl"
         >
           Create a Budget
         </button>
