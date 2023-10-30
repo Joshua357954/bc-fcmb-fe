@@ -6,7 +6,8 @@ import '../styles/modal.css'
 
 const Budjet = () => {
   const [budgets, setBudgets] = useState([]);
-  const [task, setTask] = useState('');
+  //const [task, setTask] = useState('');
+  const [task, setTask] = useState({ budgetName: '', amount:'', description: '', priorityLevel:'', receiverBank:'', accNumber:'' });
   const [show, setShow] = useState(false);
 
   const showBudget = () => {
@@ -71,13 +72,50 @@ const Budjet = () => {
         </div>
         
        <div className=' w-full my-10 rounded-xl  bg-blue-100 flex items-center justify-between p-4'>
-          <textarea
+       <input
+    type="text"
+    placeholder="Budget Name"
+    value={task.budgetName}
+    onChange={(e) => setTask({ ...task, budgetName: e.target.value })}
+  />
+   <input
+    type="text"
+    placeholder="Amount"
+    value={task.amount}
+    onChange={(e) => setTask({ ...task, amount: e.target.value })}
+  />
+   <input
+    type="text"
+    placeholder="Description"
+    value={task.description}
+    onChange={(e) => setTask({ ...task, description: e.target.value })}
+  />
+   <input
+    type="text"
+    placeholder="Priority Level"
+    value={task.priorityLevel}
+    onChange={(e) => setTask({ ...task, priorityLevel: e.target.value })}
+  />
+   <input
+    type="text"
+    placeholder="Account Number"
+    value={task.accNumber}
+    onChange={(e) => setTask({ ...task, accNumber: e.target.value })}
+  />
+   <input
+    type="text"
+    placeholder="Reciever Bank"
+    value={task.receiverBank}
+    onChange={(e) => setTask({ ...task, receiverBank: e.target.value })}
+  />
+  
+         {/* <textarea
           className='w-full h-12 bg-inherit flex items-center justify-between border-none outline-none p-4' 
             type="text"
             placeholder="create a budget"
             value={task}
             onChange={(e) => setTask(e.target.value)}
-          />
+      />*/}
           <button onClick={handleAddTodo} className='py-4 px-3 bg-blue-700'>Add</button>
         </div>
      </Modal>
