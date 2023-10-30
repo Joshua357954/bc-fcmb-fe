@@ -4,7 +4,7 @@ import Img from '../assets/avatar.jpg'
 // import { FaArrowTrendUp as Limit }  from 'react-icons/fa'
 import { MdOutlineAutoMode as Auto }  from 'react-icons/md'
 import {BiArrowBack as Back} from 'react-icons/bi';
-// import {TbLogout2} from "react-icons/tb"
+import {TbLogout2} from "react-icons/tb"
 
 import { BsChevronLeft as Back1 } from 'react-icons/bs'
 
@@ -44,7 +44,7 @@ const Profile = ({ className }) => {
                 <li className=" py-4 mt-1 flex items-center gap-4"> 
                  Privacy & Policy </li>
 
-                <li className="px-auto"> Logout </li>
+                <li className="py-4 mt-1 px-auto w-full flex items-center gap-3 "> <p>Logout</p> <TbLogout2 color='red' size={22}/></li>
             </ul>
 
         </main>
