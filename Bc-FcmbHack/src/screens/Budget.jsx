@@ -68,7 +68,7 @@ const Budjet = () => {
      <Modal isOpen={show} onClose={closeBudget} onAdd={handleAddTodo} className='w-screen bg-white bg-opacity-100 border border-black ' >
         
         <div onClick={closeBudget} className='flex justify-end'>
-            <AiOutlineClose/>
+            <Back/>
         </div>
         
        <div className=' w-full my-10 rounded-xl  bg-blue-100 flex items-center justify-between p-4'>
