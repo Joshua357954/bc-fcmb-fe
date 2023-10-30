@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TopNav from '../Components/TopNav.jsx'
 import { TbPigMoney as Bud } from 'react-icons/tb'
+import { MdPendingActions as Pending } from 'react-icons/md'
 import { FaChevronUp as Up, FaChevronDown as Down } from 'react-icons/fa'
 import CompletedBudget from '../Components/CompletedBudgets.jsx'
 import BottomNav from '../Components/BottomNav.jsx'
@@ -57,9 +58,15 @@ const App = () => {
 		        		<p className="items-center"><b className="text-sm">Amount</b> <br/> <small>₦ 5000 </small> </p>
 		        	</div>
 	        	</div>
+	        	
 
-	        	<div className="w-[40%] md:w-[30%]  h-32 bg-green-100 rounded-lg">
-	        		
+	        	<div className="w-[40%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
+	        		<Pending size={26}/>
+	        		<h2 className="font-sm font-semibold text-red-400">Pending</h2>
+	        		<div className="flex gap-4">
+		        		{<p className="items-center"><b className="text-sm">Number</b> <br/> 8</p>}
+		        		<p className="items-center"><b className="text-sm">Amount</b> <br/> <small>₦ 1,000 </small> </p>
+		        	</div>
 	        	</div>
 
 	        </div>
