@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router-dom'
 import Img from '../assets/avatar.jpg'
@@ -7,6 +8,15 @@ import { MdOutlineAutoMode as Auto }  from 'react-icons/md'
 import {BiArrowBack as Back} from 'react-icons/bi';
 import {MdOutlinePrivacyTip as Privacy} from 'react-icons/md'
 import {TbLogout2} from "react-icons/tb"
+=======
+//import React, { PropTypes } from "react";
+import { Link } from "react-router-dom";
+import Img from "../assets/avatar.jpg";
+import { FaArrowTrendUp as Limit } from "react-icons/fa6";
+import { MdOutlineAutoMode as Auto } from "react-icons/md";
+import { BiArrowBack as Back } from "react-icons/bi";
+//import { BsChevronLeft as Back1 } from "react-icons/bs";
+>>>>>>> 6f1b0c93c23a53bec5488f2fafbbb3e154bf4ca4
 
 import { BsChevronLeft as Back1 } from 'react-icons/bs'
 
@@ -46,8 +56,12 @@ const Profile = ({ className }) => {
                 <li className=" py-4 mt-1 flex items-center gap-4"> 
                  <Privacy className="text-blue-400" size={30}/> <p className="text-lg font-semibold">Privacy & Policy</p> </li>
 
+<<<<<<< HEAD
                 <li className="py-4 mt-1 w-full flex items-center gap-3 justify-center"> <p>Logout</p> <TbLogout2 color='red' size={22}/></li>
             </ul>
+=======
+        <li className=" py-4 mt-1 flex items-center gap-4">Pin Manager</li>
+>>>>>>> 6f1b0c93c23a53bec5488f2fafbbb3e154bf4ca4
 
         </main>
     );
