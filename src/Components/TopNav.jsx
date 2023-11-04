@@ -10,7 +10,7 @@ const TopNav = ({name}) => {
         	<div className="w-full h-full flex items-center justify-between py-3 px-3"> 
 	        	
                 <div className="flex flex-col text-center h-full justify-center mont">
-                    <h1 className="text-4xl font-black text-blue-500 text-center">Jobo</h1> 
+                    <h1 className="wtt text-4xl font-black text-blue-500 text-center">Jobo</h1> 
                    {/*<small className='font-semibold sm:hidden md:block'>Finance</small>*/}
                 </div>
 
