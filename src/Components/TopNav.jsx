@@ -13,7 +13,7 @@ const TopNav = ({name}) => {
                     <div className="rounded-full h-14 w-14 bg-black"> 
                         <img src={Img} className="w-full h-full"/>
     	        	</div>
-                    <p className="font-bold text-xs">Hey, <br/> <b className="text-sm">{name || "Joshua"}</b></p>
+                    <p className="font-bold text-xs">Hey, <br/> <b className="text-sm truncate">{name || "Joshua"}</b></p>
                 </Link>
         	</div>
         </nav>
