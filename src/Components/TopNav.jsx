@@ -11,7 +11,7 @@ const TopNav = ({name}) => {
 	        	
                 <div className="flex flex-col text-center h-12 mont">
                     <h1 className="text-4xl font-black text-blue-500 text-center">Jobo</h1> 
-                   <small className='font-semibold sm:hidden md:block'>Finance</small>
+                   {/*<small className='font-semibold sm:hidden md:block'>Finance</small>*/}
                 </div>
 
 	        	<Link to='profile' className="flex items-center gap-1">
