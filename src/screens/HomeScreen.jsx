@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TopNav from '../Components/TopNav.jsx'
+import { useUser } from '../Context/userContext.jsx';
 import { TbPigMoney as Bud } from 'react-icons/tb'
 import { MdPendingActions as Pending } from 'react-icons/md'
 import { FaChevronUp as Up, FaChevronDown as Down } from 'react-icons/fa'
@@ -8,12 +9,15 @@ import BottomNav from '../Components/BottomNav.jsx'
 import { PiEyeLight as Eye, PiEyeSlashLight as EyeClosed } from 'react-icons/pi'
 
 const App = () => {
+  const { user, setUser } = useUser();
   const [showBalance, setShowBalance] = useState(false);
   const transactions = [
     { id: 1, description: 'Groceries', amount: -50 },
     { id: 2, description: 'Salary', amount: 2000 },
     // Add more dummy transactions here
   ];
+
+  console.log("This is user : ",user)
 
   const budgetItems = [
     'Vacation Fund',
@@ -24,7 +28,7 @@ const App = () => {
 
   return (
     <div className=" min-h-screen">
-     <TopNav/>
+     <TopNav name={user?.name}/>
 
       <main className="p-4 lg:w-3/5 mx-auto">
         
@@ -50,7 +54,7 @@ const App = () => {
         	<h1 className='text-xl font-semibold'>Budget </h1>
         	<div className="flex gap-4">
 
-	        	<div className="w-[40%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
+	        	<div className="w-[45%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
 	        		<Bud size={26}/>
 	        		<h2 className="font-sm font-semibold text-green-300">Completed</h2>
 	        		<div className="flex gap-4">
@@ -60,7 +64,7 @@ const App = () => {
 	        	</div>
 	        	
 
-	        	<div className="w-[40%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
+	        	<div className="w-[45%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
 	        		<Pending size={26}/>
 	        		<h2 className="font-sm font-semibold text-red-400">Pending</h2>
 	        		<div className="flex gap-4">

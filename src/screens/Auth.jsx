@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginForm from '../Components/Login.jsx'
+import { useUser } from '../Context/userContext.jsx';
 import RegistrationForm from '../Components/Register.jsx'
 import axios from 'axios'
-
+import toast, { Toaster } from 'react-hot-toast';
+     
 
 const AuthScreen = () => {
+  const { user, setUser } = useUser();
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -13,31 +17,80 @@ const AuthScreen = () => {
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
   const BASE_URL = 'https://bankcraft.onrender.com/api/v1'
 
-  const handleRegister = () => {
+  const handleRegister = async() => {
     const validationErrors = validateRegistrationForm();
     if (Object.keys(validationErrors).length === 0) {
-      // Registration logic (e.g., sending data to the server)
+    
+    // Registration logic (e.g., sending data to the server)
       console.log('Registration Data:', { name, username, email, accountNumber, password });
-      // console.log(data)
-      // clearFields();
+    
+    // Show a loading toast
+    const loadingToast = toast.loading('Registering...');
 
-      const res = axios.post(`${BASE_URL}/users`, { first_name:name, last_name:"...." ,email, password } )
-      console.log(res)
-      alert(JSON.stringify(res))
-      // setIsRegistered(true);
+    axios
+      .post(`${BASE_URL}/users`, { first_name: name, last_name: '...', email, password })
+      .then((response) => {
+        // Hide the loading toast when the request is completed
+        toast.dismiss(loadingToast);
+
+        if (response.data.success) {
+          setIsRegistered(true);
+          toast.success('Registration successful');
+        } else {
+          throw new Error(response.response.data.message);
+        }
+      })
+      .catch((error) => {
+        // Hide the loading toast in case of an error
+        toast.dismiss(loadingToast);
+        console.error(error.response.data.message);
+        toast.error('An error occurred during registration: ' + error.message);
+      });
+
     } else {
       setErrors(validationErrors);
     }
   };
 
-  const handleLogin = () => {
+  
+  const handleLogin = async() => {
     const validationErrors = validateLoginForm();
     if (Object.keys(validationErrors).length === 0) {
       // Login logic (e.g., checking credentials against a database)
       console.log('Login Data:', { username, password });
-      clearFields();
+      
+      var loadingToast = toast.loading('Authenticating...');
+      
+      axios.post(`${BASE_URL}/users/login`, { email: username, password })
+      .then((response) => {
+        toast.dismiss(loadingToast); 
+
+        if (response.data.success){
+          console.log(response);
+          setUser({name:username})
+          navigate('/')
+
+        }else {
+          throw new Error(response.response.data.message);
+        }
+
+      })
+
+      .catch((error) => {
+        toast.dismiss(loadingToast);
+        const err_msg = error.response ? error.response.data.message : 'An error occurred';
+        toast.error(err_msg)
+        console.log(err_msg);
+        // setIsRegistered(true)
+
+        // toast.error(err_msg, {
+        //   // icon: '❌',
+        //   style: { padding: '15px', fontSize: '1.2rem' },
+        // });
+      });
     } else {
       setErrors(validationErrors);
     }
@@ -135,7 +188,7 @@ const AuthScreen = () => {
         ) : (
           <h2 className="text-center text-2xl font-bold text-black mb-4">Register</h2>
         )}
-        {isLoginForm && !isRegistered ? (
+        {isLoginForm ? (
           <LoginForm
             username={username}
             password={password}
@@ -144,7 +197,7 @@ const AuthScreen = () => {
             handleLogin={handleLogin}
             errors={errors}
           />
-        ) : !isRegistered ? (
+        ) : (
           <RegistrationForm
             name={name}
             // username={username}
@@ -159,12 +212,8 @@ const AuthScreen = () => {
             handleRegister={handleRegister}
             errors={errors}
           />
-        ) : (
-          <div>
-            <h2 className="text-center text-2xl font-bold mb-4">Registration Successful</h2>
-            <button onClick={handleSwitchForm} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mb-4 w-full focus:outline-none focus:shadow-outline">Login</button>
-          </div>
-        )}
+        ) }
+
       </div>
       <div className="text-center text-blue-600">
         {isLoginForm ? (
@@ -179,6 +228,7 @@ const AuthScreen = () => {
           </p>
         )}
       </div>
+      <Toaster />
     </div>
   );
 };

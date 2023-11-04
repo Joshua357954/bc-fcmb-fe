@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus as AddNew } from 'react-icons/fa'
@@ -52,6 +53,13 @@ const Budjet = () => {
         <span className="text-xl font-bold">Finance Manager</span>
         <div> </div>
       </div>
+
+    {/*Sample Budget */}
+    <div className="">
+        <div className="w-12 h-12 rounded-md bg-blue-300"></div>
+        
+    </div>
+
 
       <ul className="flex flex-col gap-4 p-4">
         {budgets.map((budget, index) => (
