@@ -10,8 +10,8 @@ const TopNav = ({name}) => {
         	<div className="w-full h-full flex items-center justify-between py-3 px-3"> 
 	        	
                 <div className="flex flex-col text-center h-12 mont">
-                    <h1 className="text-4xl font-extrabold text-blue-500 text-center">Jobo</h1> 
-                   <small className='font-semibold'>Finance</small>
+                    <h1 className="text-4xl font-black text-blue-500 text-center">Jobo</h1> 
+                   <small className='font-semibold sm:hidden md:block'>Finance</small>
                 </div>
 
 	        	<Link to='profile' className="flex items-center gap-1">

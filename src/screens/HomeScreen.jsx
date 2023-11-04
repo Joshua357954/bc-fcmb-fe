@@ -54,7 +54,7 @@ const App = () => {
         	<h1 className='text-xl font-semibold'>Budget </h1>
         	<div className="flex gap-4">
 
-	        	<div className="w-[45%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
+	        	<div className="w-[50%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
 	        		<Bud size={26}/>
 	        		<h2 className="font-sm font-semibold text-green-300">Completed</h2>
 	        		<div className="flex gap-4">
@@ -64,7 +64,7 @@ const App = () => {
 	        	</div>
 	        	
 
-	        	<div className="w-[45%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
+	        	<div className="w-[50%] md:w-[30%]  p-2 h-32 bg-black text-white rounded-lg flex flex-col justify-evenly" >
 	        		<Pending size={26}/>
 	        		<h2 className="font-sm font-semibold text-red-400">Pending</h2>
 	        		<div className="flex gap-4">
