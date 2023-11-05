@@ -58,16 +58,19 @@ const AddBudget = ({ show,closeBudget, handleAddTodo, task, setTask }) => {
               className="w-full h-12 bg-inherit bg-white rounded-sm flex items-center justify-between border-none outline-none p-4"
             />
           </div>
-          <label className="text-sm font-semibold">Priority Level</label>
-          <input
-            type="text"
-            value={task.priorityLevel}
-            onChange={(e) =>
-              setTask({ ...task, priorityLevel: e.target.value })
-            }
-            className="w-full h-12 bg-inherit bg-white rounded flex items-center justify-between border-none outline-none p-4"
-          />
-
+         <div>
+            <label className="text-sm font-semibold">Priority Level</label>
+              <select
+                value={task.priorityLevel}
+                onChange={(e) => setTask({ ...task, priorityLevel: e.target.value })}                
+                className="w-full h-12 bg-inherit font-bold bg-white rounded flex items-center justify-between border-none outline-none px-4 py-1"
+              >
+                <option value="Very Important">🔴 Very Important</option>
+                <option value="Important">🌕 Important</option>
+                <option value="Less Important">🔵 Less Important</option>
+                {/* Add more priority levels as needed */}
+              </select>
+            </div>
 
 {/*           <input
             type="text"
