@@ -55,6 +55,7 @@ const Budget = () => {
           <Back size={25} />{" "}
         </Link>
         <span className="text-xl font-bold">Finance Manager</span>
+        <p>{""}</p>
       </div>
 
       <ul className="flex flex-col gap-4 p-4">
@@ -73,7 +74,7 @@ const Budget = () => {
         ))}
       </ul>
 
-      
+
 
       {/* Create Budget Button */}
       <div className="flex justify-end">
