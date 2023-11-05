@@ -15,6 +15,7 @@ const Budget = () => {
     amount: "",
     description: "",
     priorityLevel: "",
+    budgetType:"",
     receiverBank: "",
     accNumber: "",
   });
@@ -29,7 +30,16 @@ const Budget = () => {
   };
 
   const handleAddTodo = () => {
-    if (task.budgetName.trim() === "") return;
+    
+    if (!task.budgetName || !task.amount || !task.description || !task.priorityLevel || !task.budgetType) {
+      // You can add your validation logic here, such as displaying an error message or preventing submission.
+      alert("Please fill in all required fields.");
+    
+    } else {
+      // If all fields are filled, call the handleAddTodo function to add the budget.
+      alert("Good to go")
+    }
+
     setBudgets([...budgets, task]);
     setTask({
       budgetName: "",

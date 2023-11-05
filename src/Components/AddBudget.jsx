@@ -28,7 +28,7 @@ const AddBudget = ({ show,closeBudget, handleAddTodo, task, setTask }) => {
             <div>
               <label className="text-sm font-semibold">Budget Name</label>
               <input
-                type="number"
+                type="text"
                 placeholder="e.g Yam  "
                 value={task.budgetName}
                 onChange={(e) => setTask({ ...task, budgetName: e.target.value })}
@@ -39,8 +39,7 @@ const AddBudget = ({ show,closeBudget, handleAddTodo, task, setTask }) => {
             <div>
               <label className="text-sm font-semibold">Amount</label>
               <input
-                type="text"
-                placeholder="₦ 0.00"
+                type="number"                placeholder="₦ 0.00"
                 value={task.amount}
                 onChange={(e) => setTask({ ...task, amount: e.target.value })}
                 className="w-full h-12 bg-inherit bg-white rounded-sm flex items-center justify-between border-none outline-none p-4"
@@ -58,19 +57,38 @@ const AddBudget = ({ show,closeBudget, handleAddTodo, task, setTask }) => {
               className="w-full h-12 bg-inherit bg-white rounded-sm flex items-center justify-between border-none outline-none p-4"
             />
           </div>
+         
+        <div className="flex gap-5 items-center">
          <div>
             <label className="text-sm font-semibold">Priority Level</label>
               <select
                 value={task.priorityLevel}
                 onChange={(e) => setTask({ ...task, priorityLevel: e.target.value })}                
-                className="w-full h-12 bg-inherit font-bold bg-white rounded flex items-center justify-between border-none outline-none px-4 py-1"
+                className="w-full h-12 bg-inherit font-bold bg-white rounded flex items-center justify-between border-none outline-none px-2 py-1 pr-6"
               >
                 <option value="Very Important">🔴 Very Important</option>
                 <option value="Important">🌕 Important</option>
                 <option value="Less Important">🔵 Less Important</option>
                 {/* Add more priority levels as needed */}
               </select>
-            </div>
+          </div>
+
+          <div>
+            <label className="text-sm font-semibold">Budget Type</label>
+            <select
+              value={task.budgetType}
+              onChange={(e) => setTask({ ...task, budgetType: e.target.value })}                
+              className="w-full h-12 bg-inherit bg-white rounded flex items-center justify-between border-none outline-none px-2 py-1 font-bold"
+            >  
+              <option value="Debt">💸 Debt</option>
+              <option value="Food">🍔 Food</option>
+              <option value="Miscellaneous">📚 Miscellaneous</option>
+              <option value="Transportation">🚗 Transportation</option>
+              <option value="Other">👻 Other</option>
+              {/* Add more budget types as needed */}
+            </select>  
+          </div>
+        </div>
 
 {/*           <input
             type="text"
