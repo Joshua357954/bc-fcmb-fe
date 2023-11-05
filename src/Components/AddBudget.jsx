@@ -13,7 +13,7 @@ const AddBudget = ({ show,closeBudget, handleAddTodo, task, setTask }) => {
         className="w-screen md:w-3/5  mx-auto mb-2 flex transition-all ease-in-out flex-col justify-end bg-white mt-2 h-screen overflow-y-auto"
       >
 
-      <div className="h-[80%] bg-gray-200 overflow-y-auto rounded-tl-md rounded-tr-md">
+      <div className="h-[80%] bg-gray-100 overflow-y-auto rounded-tl-lg rounded-tr-lg">
         <div onClick={closeBudget} className="flex h-4 w-14  rounded-full mx-auto mt-4 bg-white justify-center cursor-pointer"> 
           {/*<div className="flex items-center gap-2 bg-sky-50 rounded-md p-2 mt-1"> 
              <CloseMe size={23} className="text-red-500"/> 
