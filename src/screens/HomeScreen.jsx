@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
+
+import { Link } from 'react-router-dom'
+import { CgArrowDownR as Send5} from 'react-icons/cg'
+import { RiSendPlaneLine as Send} from 'react-icons/ri'
+import { ImArrowDownLeft2 as Send6} from 'react-icons/im'
 import TopNav from '../Components/TopNav.jsx'
+import { LuSendToBack as DA } from 'react-icons/lu'
 import { useUser } from '../Context/userContext.jsx';
-import { TbPigMoney as Bud } from 'react-icons/tb'
+import { TbPigMoney as Bud,TbSquareRoundedArrowDown as Send2, TbSquareRoundedChevronDown as Send3 } from 'react-icons/tb'
 import { MdPendingActions as Pending } from 'react-icons/md'
 import { FaChevronUp as Up, FaChevronDown as Down } from 'react-icons/fa'
 import CompletedBudget from '../Components/CompletedBudgets.jsx'
 import BottomNav from '../Components/BottomNav.jsx'
-import { PiEyeLight as Eye, PiEyeSlashLight as EyeClosed } from 'react-icons/pi'
+import { PiEyeLight as Eye, PiEyeSlashLight as EyeClosed,PiArrowLineDownLeftBold as Send4 } from 'react-icons/pi'
+
+
 
 const App = () => {
   const { user, setUser } = useUser();
@@ -34,7 +42,7 @@ const App = () => {
         
 {/*        <h1 className="text-lg font-bold mt-1"><small>Hey</small>, Joshua </h1>
 */}				   
-        <div className='mb-7 w-full flex flex-col gap-2'>	
+        <div className='mb-5 w-full flex flex-col gap-2'>	
        		<p className="font-bold">Balance</p>
        		<div className='flex items-center gap-2'>
 	       		<h1 className="text-3xl flex items-center">{showBalance ? '₦ 2000' : '₦ ****'}</h1>
@@ -46,9 +54,42 @@ const App = () => {
 	       	</div>
         </div>
 
+      {/*  Financial Transaction Component */}
+
+      <div className="flex items-center justify-evenly mb-2">
+          <div className="mb-4b hover:bg-blue-700p flex flex-col items-center">
+            <Send size={30} className="text-blue-500"/>
+            <Link to="/send-money">
+              <button className="text-sm font-semibold text-black bg-transparent font-bold py-2 px-4 rounded">
+                Send 
+              </button>
+            </Link>
+          </div>
+          
+          <div className="mb-4b hover:bg-blue-700p flex flex-col items-center">
+            <Send3 size={32} className="text-green-400"/>
+            <Link to="/send-money">
+              <button className="text-sm font-semibold text-black bg-transparent font-bold py-2 px-4 rounded">
+                Deposit
+              </button>
+            </Link>
+          </div>
+
+          <div className="mb-4b hover:bg-blue-700p flex flex-col items-center">
+            <DA size={32} className="text-indigo-400"/>
+            <Link to="/send-money">
+              <button className="text-sm font-semibold text-black bg-transparent font-bold py-2 px-4 rounded">
+                 Buy Data
+              </button>
+            </Link>
+          </div>
+        </div>
+
+
+
 
 	    {/* Show Recently completed budget or pending */}
-        {/*<CompletedBudget  items={budgetItems}/>*/}
+      {/*<CompletedBudget  items={budgetItems}/>*/}
 
         <div className="flex flex-col gap-3"> 
         	<h1 className='text-xl font-semibold'>Budget </h1>

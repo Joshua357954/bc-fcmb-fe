@@ -9,7 +9,7 @@ import HomeScreen from './screens/HomeScreen.jsx'
 import Budget from "./screens/Budget.jsx"
 import FinanceBoard from './screens/FinanceDashboard.jsx'
 import ProfileScreen from './screens/Profile.jsx'
-
+import TransferScreen from './screens/TransferScreen.jsx'
 
 const router = createBrowserRouter([
     
@@ -35,6 +35,10 @@ const router = createBrowserRouter([
     {
       path: "/financeBoard",
       element:<FinanceBoard/>
+    },
+     {
+      path: "/send-money",
+      element:<TransferScreen/>
     }
 
 ])
